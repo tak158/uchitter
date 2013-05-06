@@ -1,9 +1,9 @@
 Uchitter::Application.routes.draw do
+  resources :relations
+
   get "logins/new"
   get "logins/create"
   get "logins/destroy"
-  resources :relations
-
   resources :tweets
 
   resources :users

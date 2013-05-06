@@ -11,16 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130502094334) do
+ActiveRecord::Schema.define(version: 20130505041651) do
 
   create_table "relations", force: true do |t|
     t.integer  "user_id"
-    t.integer  "tweet_id"
+    t.integer  "to_user"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "relations", ["tweet_id"], name: "index_relations_on_tweet_id"
   add_index "relations", ["user_id"], name: "index_relations_on_user_id"
 
   create_table "tweets", force: true do |t|

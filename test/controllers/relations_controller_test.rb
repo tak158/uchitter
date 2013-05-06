@@ -18,7 +18,7 @@ class RelationsControllerTest < ActionController::TestCase
 
   test "should create relation" do
     assert_difference('Relation.count') do
-      post :create, relation: { tweet_id: @relation.tweet_id, user_id: @relation.user_id }
+      post :create, relation: { to_user: @relation.to_user, user_id: @relation.user_id }
     end
 
     assert_redirected_to relation_path(assigns(:relation))
@@ -35,7 +35,7 @@ class RelationsControllerTest < ActionController::TestCase
   end
 
   test "should update relation" do
-    patch :update, id: @relation, relation: { tweet_id: @relation.tweet_id, user_id: @relation.user_id }
+    patch :update, id: @relation, relation: { to_user: @relation.to_user, user_id: @relation.user_id }
     assert_redirected_to relation_path(assigns(:relation))
   end
 

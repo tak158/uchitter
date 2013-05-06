@@ -2,8 +2,8 @@
 
 one:
   user_id: 
-  tweet_id: 
+  to_user: 1
 
 two:
   user_id: 
-  tweet_id: 
+  to_user: 1

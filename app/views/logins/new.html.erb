@@ -1,11 +1,12 @@
 <p class="lead">Logins</p>
 
-<form>
-  <fieldset>
-    <legend>user name?</legend>
-    <%= email_field :user_name, :name, placeholder: "Type something..." %>
-    <br>
-    <%= button_to "ログイン", tweets_path , class: "btn"} %>
-  </fieldset>
-</form>
+<%= form_for(@user, url: logins_path) do |f| %>
+<div class="field">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+<%= f.submit 'ログイン', class: "btn" %>
+<% end %>
+
+
 
