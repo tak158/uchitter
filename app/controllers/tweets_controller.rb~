@@ -4,9 +4,7 @@ class TweetsController < ApplicationController
   # GET /tweets
   # GET /tweets.json
   def index
-    @tweets = Tweet.all
-    @relations = Relation.all
-    debugger
+    @tweet = Tweet.all
   end
 
   # GET /tweets/1
