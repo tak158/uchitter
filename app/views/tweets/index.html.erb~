@@ -1,4 +1,16 @@
-<h1>Listing tweets</h1>
+<h1>Uchitter</h1>
+
+<%= form_for (@tweet) do |f| %>
+<div class="field">
+  <%= f.label :tweet %><br>
+  <%= f.text_area :tweet %>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
+
+<% end %>
+
 
 <table>
   <thead>
@@ -13,13 +25,13 @@
 
   <tbody>
     <% @tweets.each do |tweet| %>
-      <tr>
-        <td><%= tweet.tweet %></td>
-        <td><%= tweet.user.name %></td>
-        <td><%= link_to 'Show', tweet %></td>
-        <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
-        <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= tweet.tweet %></td>
+      <td><%= tweet.user.name %></td>
+      <td><%= link_to 'Show', tweet %></td>
+      <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
+      <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>

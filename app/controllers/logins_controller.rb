@@ -17,7 +17,7 @@ class LoginsController < ApplicationController
   def destroy
     @user = User.new(id: params[:id])
     session[:login] = nil
-    redirect_to action: 'new'
+    redirect_to root_path
   end
 
   private

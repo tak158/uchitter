@@ -1,14 +1,4 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Profile:</strong>
-  <%= @user.profile %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= render "show_body" %>
+<%= link_to 'Edit', edit_user_path(@user) %>

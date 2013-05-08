@@ -4,9 +4,9 @@ class TweetsController < ApplicationController
   # GET /tweets
   # GET /tweets.json
   def index
-    @tweets = Tweet.all
-    @relations = Relation.all
-    debugger
+    @relations = Relation.where(user_id: session[:login])
+    @tweets = Tweet.where(user_id: @relations.map {|relation| relation.to_user})
+    @tweet = Tweet.new
   end
 
   # GET /tweets/1
@@ -26,11 +26,12 @@ class TweetsController < ApplicationController
   # POST /tweets
   # POST /tweets.json
   def create
-    @tweet = Tweet.new(tweet_params)
+
+    @tweet = Tweet.new(user_id: session[:login], tweet: params[:tweet][:tweet])
 
     respond_to do |format|
       if @tweet.save
-        format.html { redirect_to @tweet, notice: 'Tweet was successfully created.' }
+        format.html { redirect_to tweets_path, notice: 'Tweet was successfully created.' }
         format.json { render action: 'show', status: :created, location: @tweet }
       else
         format.html { render action: 'new' }

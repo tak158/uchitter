@@ -10,9 +10,6 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    if request.xml_http_request?
-      render partial: "show_body"
-    end
   end
 
   # GET /users/new

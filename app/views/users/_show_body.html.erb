@@ -1,0 +1,11 @@
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Profile:</strong>
+  <%= @user.profile %>
+</p>
+
+<%= button_to "フォローする", new_relation_path, method: :get, class: "btn btn-primary" %>

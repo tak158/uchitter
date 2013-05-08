@@ -7,6 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if session[:login] %>
+<% user = User.find(session[:login]) %>
+<h3>こんにちは<%= user.name %>さん。</h3>
+<% end %>
+<BR><BR>
 
 <%= yield %>
 

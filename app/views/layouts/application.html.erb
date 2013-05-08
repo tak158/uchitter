@@ -10,6 +10,9 @@
 <% if session[:login] %>
 <% user = User.find(session[:login]) %>
 <h3>こんにちは<%= user.name %>さん。</h3>
+<div align="right">
+  <%= link_to "ログアウト", login_path(session[:login]), method: :delete %>
+</div>
 <% end %>
 <BR><BR>
 

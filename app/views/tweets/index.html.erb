@@ -1,4 +1,13 @@
-<h1>Listing tweets</h1>
+<%= form_for (@tweet) do |f| %>
+<div class="field">
+  <%= f.text_area :tweet %>
+</div>
+<div class="actions">
+  <%= f.submit "ツイートする", class: "btn btn-success" %>
+</div>
+
+<% end %>
+
 
 <table>
   <thead>
@@ -7,23 +16,31 @@
       <th>User</th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @tweets.each do |tweet| %>
-      <tr>
-        <td><%= tweet.tweet %></td>
-        <td><%= tweet.user.name %></td>
-        <td><%= link_to 'Show', tweet %></td>
-        <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
-        <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= tweet.tweet %></td>
+      <td><%= link_to tweet.user.name, user_path(tweet.user_id), remote: true, class: "get_user" %></td>
+      <td><%= link_to 'Show', tweet %></td>
+      <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<BR>
+<BR>
 
-<%= link_to 'New Tweet', new_tweet_path %>
+<div id="information_place">
+</div>
+
+<%= javascript_tag do %>
+  $(".get_user").on("ajax:success", function(data, status, xhr){
+    $("#information_place").html(status);
+  });
+<% end %>
+
+
