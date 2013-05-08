@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @follow_relations = Relation.where(user_id: params[:id])
+    @follow_users = User.where(id: @follow_relations.map{|relation| relation.to_user })
     if request.xml_http_request?
       render partial: "show_body"
     end

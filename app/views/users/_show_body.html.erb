@@ -9,3 +9,12 @@
 </p>
 
 <%= button_to "フォローする", new_relation_path, method: :get, class: "btn btn-primary" %>
+
+<BR>
+<BR>
+
+このユーザは以下のユーザをフォローしています
+<BR>
+<% @follow_users.each do |user| %>
+<%= link_to user.name, user_path(user.id) %>
+<% end %>
